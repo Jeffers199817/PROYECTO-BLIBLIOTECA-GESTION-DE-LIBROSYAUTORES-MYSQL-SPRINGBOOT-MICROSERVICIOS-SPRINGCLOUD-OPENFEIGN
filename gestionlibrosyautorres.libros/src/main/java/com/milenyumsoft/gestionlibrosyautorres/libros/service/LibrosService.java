@@ -1,7 +1,7 @@
 package com.milenyumsoft.gestionlibrosyautorres.libros.service;
 
 import com.milenyumsoft.gestionlibrosyautorres.libros.modelo.Libro;
-import com.milenyumsoft.gestionlibrosyautorres.libros.repository.ILibrosRepository;
+import com.milenyumsoft.gestionlibrosyautorres.libros.repository.ILibroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,31 +11,38 @@ import java.util.List;
 public class LibrosService implements ILibrosService {
 
     @Autowired
-    private ILibrosRepository librosRepository;
+    private ILibroRepository libroRepository;
 
 
     @Override
     public void crearLibro(Libro libro) {
+        libroRepository.save(libro);
 
     }
 
     @Override
     public void eliminarLibro(Long id) {
 
+        libroRepository.delete(libroRepository.findById(id).get());
+
     }
 
     @Override
     public List<Libro> traerLibros() {
-        return List.of();
+        return libroRepository.findAll();
     }
 
     @Override
     public Libro traerLibro(Long id) {
-        return null;
+        return libroRepository.findById(id).get();
     }
 
     @Override
     public Libro actualizarLibro(Libro libro) {
+
+        if(libroRepository.existsById(libro.getIdLibro())){
+            return libroRepository.save(libro);
+        }
         return null;
     }
 }

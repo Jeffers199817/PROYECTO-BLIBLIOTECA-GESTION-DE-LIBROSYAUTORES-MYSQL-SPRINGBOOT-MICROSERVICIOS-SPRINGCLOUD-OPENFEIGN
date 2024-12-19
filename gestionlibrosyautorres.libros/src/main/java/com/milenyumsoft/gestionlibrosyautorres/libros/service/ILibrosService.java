@@ -7,7 +7,10 @@ import java.util.List;
 public interface ILibrosService {
 
     //Crear
-    public void crearLibro();
+    public void crearLibro(Libro libro);
+
+    //Eliminar
+    public void eliminarLibro(Long id);
 
     //Traer todos los libros
     public List<Libro> traerLibros();
@@ -17,5 +20,5 @@ public interface ILibrosService {
 
     //Actualizar un libro
 
-    public Libro actualizarLibro(Long id);
+    public Libro actualizarLibro(Libro libro);
 }

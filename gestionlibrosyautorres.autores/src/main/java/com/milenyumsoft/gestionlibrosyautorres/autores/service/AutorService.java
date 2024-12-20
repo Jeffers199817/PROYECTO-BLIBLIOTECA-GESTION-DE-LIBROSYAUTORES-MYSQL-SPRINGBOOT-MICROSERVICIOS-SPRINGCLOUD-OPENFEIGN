@@ -36,6 +36,12 @@ public class AutorService implements IAutorService {
 
     @Override
     public Autor actualizarAutor(Autor autor) {
-        return null;
+
+       Autor aut= this.traerAutor(autor.getIdAutor());
+         aut.setNombre(autor.getNombre());
+            aut.setFechaNacimiento(autor.getFechaNacimiento());
+            aut.setIdLibros(autor.getIdLibros());
+            this.crearAutor(aut);
+        return aut;
     }
 }

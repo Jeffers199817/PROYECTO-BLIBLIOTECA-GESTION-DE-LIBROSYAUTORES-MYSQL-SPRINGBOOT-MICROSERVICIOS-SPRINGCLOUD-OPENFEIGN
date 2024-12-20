@@ -34,6 +34,8 @@ public class LibroService implements ILibroService {
 
        if(listaAutors.isEmpty()){
            String respuesta= "No se puede crear el libro, no existe ningun autor de la lista";
+            return respuesta;
+
        }
        if(!listaAutors.isEmpty()){
 
@@ -52,8 +54,9 @@ public class LibroService implements ILibroService {
         libro.getListaAutores().addAll(listaAutors);
 
         libroRepository.save(libro);
+       String respuesta = "Libro creado correctamente , con los autores existentes"+ listaAutors.toString() + " y los autores no existentes: " + autoresNOExistentes.toString();
 
-        return "Libro creado correctamente , con los autores existentes"+ listaAutors.toString() + " y los autores no existentes: " + autoresNOExistentes.toString();
+        return respuesta;
 
     }
 

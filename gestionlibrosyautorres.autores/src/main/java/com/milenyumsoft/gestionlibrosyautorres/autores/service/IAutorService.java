@@ -17,4 +17,5 @@ public interface IAutorService {
     public Autor actualizarAutor(Autor autor);
 
 
+    public List<String> traerAutoresPorNombre(List<String> autores);
 }

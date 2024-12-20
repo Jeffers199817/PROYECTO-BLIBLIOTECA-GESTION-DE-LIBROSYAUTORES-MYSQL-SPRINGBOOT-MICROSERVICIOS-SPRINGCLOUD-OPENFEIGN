@@ -5,6 +5,7 @@ import com.milenyumsoft.gestionlibrosyautorres.autores.repository.IAutorReposito
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -45,5 +46,19 @@ public class AutorService implements IAutorService {
             aut.setIdLibros(autor.getIdLibros());
             this.crearAutor(aut);
         return aut;
+    }
+
+    @Override
+    public List<String> traerAutoresPorNombre(List<String> autores) {
+
+        List<String> autoresExistentes= new ArrayList<>();
+        for(String autor: autores){
+          Autor aut=  autorRepository.traerAutorPorNombre(autor);
+            if(aut!=null){
+                autoresExistentes.add(aut.getNombre());
+            }
+        }
+
+        return autoresExistentes;
     }
 }

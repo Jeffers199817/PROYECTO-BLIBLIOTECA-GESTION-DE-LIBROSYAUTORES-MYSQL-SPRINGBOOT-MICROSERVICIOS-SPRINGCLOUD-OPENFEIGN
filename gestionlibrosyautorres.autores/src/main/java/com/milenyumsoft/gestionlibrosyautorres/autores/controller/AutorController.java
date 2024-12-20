@@ -44,4 +44,9 @@ public class AutorController {
         Autor aut= autorService.actualizarAutor(autor);
         return "Autor actualizado correctamente" + aut.toString();
     }
+
+    @PostMapping("/traerAutoresPorNombre")
+    public List<String> traerAutoresPorNombre(@RequestBody List<String> autores){
+        return autorService.traerAutoresPorNombre(autores);
+    }
 }

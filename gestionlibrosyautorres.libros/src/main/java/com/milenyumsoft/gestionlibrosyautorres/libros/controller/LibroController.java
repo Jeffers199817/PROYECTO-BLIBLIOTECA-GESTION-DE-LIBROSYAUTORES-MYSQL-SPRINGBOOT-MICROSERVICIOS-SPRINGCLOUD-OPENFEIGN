@@ -27,8 +27,8 @@ public class LibroController {
 
     @PostMapping("/crearLibro")
     public String crearLibro(@RequestBody Libro libro){
-        librosService.crearLibro(libro);
-        return "Libro creado correctamente";
+       return librosService.crearLibro(libro);
+
 
 
     }

@@ -6,6 +6,7 @@ import java.util.List;
 public class Libro {
 
     private Long idLibro;
+    private Long numeroISBN;
     private Long titulo;
     private LocalDate fechaPublicacion;
     private String descripcion;

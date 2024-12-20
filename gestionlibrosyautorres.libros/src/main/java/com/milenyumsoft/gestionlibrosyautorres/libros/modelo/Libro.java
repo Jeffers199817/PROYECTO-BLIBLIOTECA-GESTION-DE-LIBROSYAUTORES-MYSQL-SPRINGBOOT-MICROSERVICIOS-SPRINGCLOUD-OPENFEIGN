@@ -5,6 +5,7 @@ import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Setter
@@ -25,6 +26,6 @@ public class Libro {
     private LocalDate fechaPublicacion;
     private String descripcion;
     @ElementCollection
-    private List<String> listaAutres;
+    private List<String> listaAutores = new ArrayList<>();
 
 }

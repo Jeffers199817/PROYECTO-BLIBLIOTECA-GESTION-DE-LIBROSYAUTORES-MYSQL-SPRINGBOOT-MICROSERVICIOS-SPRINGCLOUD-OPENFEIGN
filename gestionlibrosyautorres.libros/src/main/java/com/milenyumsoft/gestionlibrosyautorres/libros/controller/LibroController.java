@@ -26,7 +26,7 @@ public class LibroController {
     }
 
     @PostMapping("/crearLibro")
-    public String crearLibro(Libro libro){
+    public String crearLibro(@RequestBody Libro libro){
         librosService.crearLibro(libro);
         return "Libro creado correctamente";
 
@@ -40,7 +40,7 @@ public class LibroController {
     }
 
     @PutMapping("/actualizarLibro")
-    public String actualizarLibro(Libro libro){
+    public String actualizarLibro(@RequestBody Libro libro){
        Libro lib= librosService.actualizarLibro(libro);
         return "Libro actualizado correctamente" + lib.toString();
     }

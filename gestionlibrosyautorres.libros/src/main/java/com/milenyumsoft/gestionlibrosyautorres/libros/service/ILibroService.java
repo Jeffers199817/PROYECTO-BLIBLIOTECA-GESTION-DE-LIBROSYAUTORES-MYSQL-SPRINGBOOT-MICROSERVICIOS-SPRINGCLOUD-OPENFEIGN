@@ -7,7 +7,7 @@ import java.util.List;
 public interface ILibroService {
 
     //Crear
-    public void crearLibro(Libro libro);
+    public String crearLibro(Libro libro);
 
     //Eliminar
     public void eliminarLibro(Long id);

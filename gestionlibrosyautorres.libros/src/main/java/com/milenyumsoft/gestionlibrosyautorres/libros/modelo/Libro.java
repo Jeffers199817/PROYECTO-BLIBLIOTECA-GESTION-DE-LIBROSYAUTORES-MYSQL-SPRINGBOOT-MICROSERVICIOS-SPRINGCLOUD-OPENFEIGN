@@ -2,6 +2,7 @@ package com.milenyumsoft.gestionlibrosyautorres.libros.modelo;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -20,6 +21,7 @@ public class Libro {
 
     private Long numeroISBN;
     private String titulo;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate fechaPublicacion;
     private String descripcion;
     @ElementCollection

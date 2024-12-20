@@ -4,7 +4,7 @@ import com.milenyumsoft.gestionlibrosyautorres.libros.modelo.Libro;
 
 import java.util.List;
 
-public interface ILibrosService {
+public interface ILibroService {
 
     //Crear
     public void crearLibro(Libro libro);

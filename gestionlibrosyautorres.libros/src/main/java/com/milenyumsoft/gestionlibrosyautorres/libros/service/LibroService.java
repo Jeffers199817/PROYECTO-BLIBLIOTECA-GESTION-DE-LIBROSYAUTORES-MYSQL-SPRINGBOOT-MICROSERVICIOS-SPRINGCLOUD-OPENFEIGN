@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class LibrosService implements ILibrosService {
+public class LibroService implements ILibroService {
 
     @Autowired
     private ILibroRepository libroRepository;
@@ -40,9 +40,17 @@ public class LibrosService implements ILibrosService {
     @Override
     public Libro actualizarLibro(Libro libro) {
 
-        if(libroRepository.existsById(libro.getIdLibro())){
-            return libroRepository.save(libro);
-        }
-        return null;
+       Libro lib = this.traerLibro(libro.getIdLibro());
+
+       lib.setTitulo(libro.getTitulo());
+         lib.setNumeroISBN(libro.getNumeroISBN());
+            lib.setFechaPublicacion(libro.getFechaPublicacion());
+            lib.setDescripcion(libro.getDescripcion());
+            lib.setListaAutres(libro.getListaAutres());
+
+            this.crearLibro(lib);
+
+
+        return lib;
     }
 }

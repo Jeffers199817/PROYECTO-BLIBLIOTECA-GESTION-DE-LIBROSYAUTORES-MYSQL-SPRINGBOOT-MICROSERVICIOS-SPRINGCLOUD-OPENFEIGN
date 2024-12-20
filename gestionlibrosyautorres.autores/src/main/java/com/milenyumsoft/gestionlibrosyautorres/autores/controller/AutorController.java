@@ -21,24 +21,26 @@ public class AutorController {
     }
 
     @GetMapping("/traerAutor/{id}")
-    public Autor traerAutor(Long id){
+    public Autor traerAutor(@PathVariable Long id){
         return autorService.traerAutor(id);
     }
 
     @PostMapping("/crearAutor")
-    public String crearAutor(Autor autor){
+    public String crearAutor(@RequestBody Autor autor){
         autorService.crearAutor(autor);
+        System.out.println("Autor: " + autor.getNombre());
+        System.out.println("Autor: " + autor.toString());
         return "Autor creado correctamente";
     }
 
     @DeleteMapping("/eliminarAutor/{id}")
-    public String eliminarAutor(Long id){
+    public String eliminarAutor(@PathVariable Long id){
         autorService.eliminarAutor(id);
         return "Autor eliminado correctamente";
     }
 
     @PutMapping("/actualizarAutor")
-    public String actualizarAutor(Autor autor){
+    public String actualizarAutor(@RequestBody Autor autor){
         Autor aut= autorService.actualizarAutor(autor);
         return "Autor actualizado correctamente" + aut.toString();
     }

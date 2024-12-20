@@ -15,6 +15,8 @@ public class AutorService implements IAutorService {
 
     @Override
     public void crearAutor(Autor autor) {
+
+        System.out.println("Autor: " + autor.toString());
      autorRepository.save(autor);
 
     }

@@ -20,6 +20,7 @@ public class Autor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idAutor;
     private String nombre;
+    private String nacionalidad;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate fechaNacimiento;
     @ElementCollection

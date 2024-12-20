@@ -1,5 +1,6 @@
 package com.milenyumsoft.gestionlibrosyautorres.libros.controller;
 
+import com.milenyumsoft.gestionlibrosyautorres.libros.dto.LibroDTO;
 import com.milenyumsoft.gestionlibrosyautorres.libros.modelo.Libro;
 import com.milenyumsoft.gestionlibrosyautorres.libros.service.ILibroService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +46,10 @@ public class LibroController {
         return "Libro actualizado correctamente" + lib.toString();
     }
 
+    @GetMapping("/traerLibros/idlibros/listaautores")
+    public List<LibroDTO> traerLibrosPorIdLibros(){
+        return librosService.traerLibrosPorIdLibros();
+    }
 
 
 

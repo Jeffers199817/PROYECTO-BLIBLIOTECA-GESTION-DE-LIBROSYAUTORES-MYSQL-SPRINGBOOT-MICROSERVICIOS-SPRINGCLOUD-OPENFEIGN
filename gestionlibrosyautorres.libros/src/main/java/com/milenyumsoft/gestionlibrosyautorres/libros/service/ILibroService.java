@@ -1,5 +1,6 @@
 package com.milenyumsoft.gestionlibrosyautorres.libros.service;
 
+import com.milenyumsoft.gestionlibrosyautorres.libros.dto.LibroDTO;
 import com.milenyumsoft.gestionlibrosyautorres.libros.modelo.Libro;
 
 import java.util.List;
@@ -21,4 +22,6 @@ public interface ILibroService {
     //Actualizar un libro
 
     public Libro actualizarLibro(Libro libro);
+
+     public List<LibroDTO> traerLibrosPorIdLibros();
 }

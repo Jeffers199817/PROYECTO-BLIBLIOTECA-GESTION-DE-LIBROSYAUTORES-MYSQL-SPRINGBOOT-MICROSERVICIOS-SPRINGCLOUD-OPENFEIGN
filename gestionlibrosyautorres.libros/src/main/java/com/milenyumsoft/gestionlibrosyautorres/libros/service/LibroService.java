@@ -53,7 +53,13 @@ public class LibroService implements ILibroService {
 
         libro.getListaAutores().addAll(listaAutors);
 
+
         libroRepository.save(libro);
+
+
+
+
+
        String respuesta = "Libro creado correctamente , con los autores existentes"+ listaAutors.toString() + " y los autores no existentes: " + autoresNOExistentes.toString();
 
         return respuesta;
@@ -93,5 +99,27 @@ public class LibroService implements ILibroService {
 
 
         return lib;
+    }
+
+    @Override
+    public List<LibroDTO> traerLibrosPorIdLibros() {
+       List<Libro> lib = this.traerLibros();
+        List<LibroDTO> autoresDTO = new ArrayList<>();
+
+       for(Libro libro: lib) {
+           List<String> autores = libro.getListaAutores();
+
+           for (String autor : autores) {
+               LibroDTO autd = new LibroDTO();
+               autd.setIdLibro(libro.getIdLibro());
+               autd.getListaAutores().add(autor);
+
+               autoresDTO.add(autd);
+           }
+       }
+
+    return autoresDTO;
+
+
     }
 }
